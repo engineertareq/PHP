@@ -16,9 +16,15 @@
 
 <?php
   $error = "";
-  $nameErr = $emailErr = $skillsErr = $foodsErr = "";
-  $name = $email = "";
-  $skills = $foods = [];
+  $nameErr = "";
+  $emailErr = ""; 
+  $skillsErr = "";
+  $foodsErr = "";
+
+  $name = "";
+  $email = "";
+  $skills = [];
+  $foods = [];
 
   if (isset($_POST['submit'])) {
       $name = trim($_POST['name']);
