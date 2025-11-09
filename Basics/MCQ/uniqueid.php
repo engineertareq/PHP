@@ -8,3 +8,11 @@ echo uniqid("Batch-1-");
 
 </body>
 </html>
+
+<!-- nique Id genarator in php  -->
+
+
+
+
+
+

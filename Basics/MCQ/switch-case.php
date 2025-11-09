@@ -1,15 +1,16 @@
 <?php
-$a = "1";
-switch ($$a) {
+$a = 1; // Use integer directly
+switch ($a) {
     case 1:
-        echo"Hasan;
+        echo "Hasan";
+        break;
     case 2:
-        echo"Rabbany;
-    case 1:
-        echo"Hasan;
+        echo "Rabbany";
+        break;
     case 3:
-        echo"It is nymur Rahmna";
-        default;
+        echo "It is Nymur Rahman";
+        break;
+    default:
         echo "hello";
 }
 ?>
