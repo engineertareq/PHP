@@ -1,0 +1,6 @@
+101 Rahim PWAD-68 Pass
+102 Karim PWAD-68 Fail
+103 Kalam PWAD-68 Pass
+104 Mahmud PWAD-68 Fail
+105 Abidul PWAD-68 Pass
+106 Khalikul PWAD-68 Fail
