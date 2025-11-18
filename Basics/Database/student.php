@@ -17,7 +17,9 @@
 <body>
 
 <?php
-$sql = "SELECT * FROM students";
+# $sql = "SELECT * FROM students";
+# $sql = "SELECT * FROM students ORDER BY empployeeID desc";
+ $sql = "SELECT * FROM students ORDER BY first_name asc";
 $result = $db->query($sql); 
 
 if ($result->num_rows > 0): ?>
@@ -41,7 +43,9 @@ if ($result->num_rows > 0): ?>
     </table>
 <?php else: ?>
     <p>No records found.</p>
-<?php endif; ?> <br>
+<?php endif; 
+$db->close();
+?> <br>
 <a href="dataform.php" style="
     padding:6px 6px;
     background:#4CAF50;
