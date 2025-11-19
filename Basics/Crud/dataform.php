@@ -32,7 +32,7 @@ endif;
     <textarea name="notes" placeholder="Enter The Notes"></textarea> <br>
     <input type="submit" name="submit" value="Submit">
 </form> <br>
-<a href="student.php" style="
+<a href="index.php" style="
     padding:6px 6px;
     background:#4CAF50;
     color:white;

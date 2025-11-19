@@ -19,7 +19,7 @@
 <?php
 # $sql = "SELECT * FROM students";
 # $sql = "SELECT * FROM students ORDER BY empployeeID desc";
- $sql = "SELECT * FROM students ORDER BY first_name asc";
+ $sql = "SELECT * FROM students ORDER BY employeeID asc";
 $result = $db->query($sql); 
 
 if ($result->num_rows > 0): ?>
@@ -29,7 +29,7 @@ if ($result->num_rows > 0): ?>
             <th>First Name</th>
             <th>Last Name</th>
             <th>DOB</th>
-            <th>Notes</th>
+            <th colspan="2">Action</th>
         </tr>
         <?php while ($row1 = $result->fetch_object()){ ?>
         <tr>
@@ -37,7 +37,9 @@ if ($result->num_rows > 0): ?>
             <td><?php echo $row1->first_name; ?></td>
             <td><?php echo $row1->last_name; ?></td>
             <td><?php echo $row1->birthdate; ?></td>
-            <td><?php echo $row1->notes; ?></td>
+            
+            <td><a href="student-edit.php?id=<?php echo $row1->employeeID; ?>">Edit</a></td>
+            <td><a href="test.php?id=<?php echo $row1->employeeID; ?>">Delete</a></td>
         </tr>
         <?php } ?>
     </table>
@@ -60,8 +62,6 @@ onmouseout="this.style.background='#afa84cff';"
     ADD NEW DATA
 </a>
 
-<?php
 
-?>
 </body>
 </html>
