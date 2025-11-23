@@ -13,7 +13,6 @@
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $num = $_POST['number'];
-
         function isPrime($num) {
             if ($num <= 1) return false;
             if ($num == 2) return true;
