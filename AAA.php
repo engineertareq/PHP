@@ -1,159 +1,3 @@
-<!-- studentClass.php -->
-<?php  
-class studentClass{
-    public $id;
-    public $name;
-    public $batch;
-    public $file;
-    function __construct($file){
-          $this->file = $file;
-    }
-    function result($fid) {
-      $data =  file($this->file);
-    foreach($data as $line){
-        list($id, $name, $batch, $result) = explode(" ", $line);
-      if($fid == $id){
-      return $id. ", " . $name. ", " . $batch. ", ". $result;
-    }
-      }
-    return $fid . " is not one of our student";
-    }
-}
-?>
-<!-- finalResult.php -->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-       if(isset($_POST['submit'])) {
-        $stid = $_POST['studentId'];
-        include ("studentClass.php");
-
-     $sheet = new StudentClass("result.txt");
-     $result= $sheet->result($stid);
-         echo $result;
-       }
-    ?>
-    <h3>
-            Find Result
-        </h3>
-    <form action="" method="post">
-    <input type="number" name="studentId">
-    <input type="submit" name="submit" value="Search">
-    </form>
-</body>
-</html>
-<!-- assosiative array -->
- <?php
-$country = array("BD" => "Dhaka", "USA" => "New York", "UK" => "Londonm", "India" => "Dellhi", "Finland" => "Helsinki");
-echo "The key sorted array is: <br>";
-ksort($country);
-foreach ($country as $key => $value) {
-    echo "$key => $value<br>";
-}
-?>
-
-<hr>
-
-<?php
-$country = array("BD" => "Dhaka", "USA" => "New York", "UK" => "Londonm", "India" => "Dellhi", "Finland" => "Helsinki"
-);
-echo "The value sorted array is: <br>";
-asort($country);
-foreach ($country as $key => $value) {
-    echo "$key => $value<br>";
-}
-?>
-
-<hr>
-<!-- Factorial -->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h3>Factorial Checker</h3>
-    <form action="" method="post">
-    Enter the Number <input type="number" name="number" required>
-    <input type="submit" name="submit" value="Check">
-    </form>
-
-    <?php 
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $num = $_POST['number'];
-
-        function factorial ($num){
-            if($num<0) return null;
-            $fact = 1;
-            for ($i = 1; $i<=$num; $i++){
-                $fact *= $i;
-            }
-            return $fact;
-        }
-        if ($num < 0) {
-            echo "<p style='color:red;'>Factorial is not defined for negative numbers.</p>";
-        } else {
-            echo "<p style='color:green;'>Factorial of $num is " . factorial($num) . "</p>";
-        }
-    }
-    ?>
-</body>
-</html>
-<!-- File Upload -->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h3>File Upload Using Php Protocol</h3>
-    <?php
-    if(isset($_POST['upload'])){
-        $filename = $_FILES['myfile']['name'];
-        $tmpfile =  $_FILES['myfile']['tmp_name'];
-        $destination = "file/" . $filename;
-        $FileSize =  $_FILES['myfile']['size']; 
-        $maxSize = 100000;
-        echo $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-        $allowedTypes = ["jpg", "jpeg", "png"];
-        $errors =[];
-
-        if($FileSize>$maxSize){
-            $errors[] = "File is to large 1 mb is max file size" . "<br>";
-        }
-        if(!in_array($ext, $allowedTypes)){
-             $errors[] = "<br>" . " File Type not allowed";
-        }
-        
-        if(count($errors)>0){
-            foreach($errors as $error){
-            echo $error;
-            }
-
-        }
-        else {
-            move_uploaded_file($tmpfile, $destination);
-            echo "<br>" . "Sucessfull";
-
-        }
-    }     
-    ?>
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="myfile">
-    <input type="submit" value="UPLOAD" name="upload">
-    </form>
-</body>
-</html>
 <!-- Grade Evaluation -->
  <!DOCTYPE html>
 <html>
@@ -310,6 +154,162 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" value="Submit">
 </form>
 
+</body>
+</html>
+<!-- studentClass.php -->
+<?php  
+class studentClass{
+    public $id;
+    public $name;
+    public $batch;
+    public $file;
+    function __construct($file){
+          $this->file = $file;
+    }
+    function result($fid) {
+      $data =  file($this->file);
+    foreach($data as $line){
+        list($id, $name, $batch, $result) = explode(" ", $line);
+      if($fid == $id){
+      return $id. ", " . $name. ", " . $batch. ", ". $result;
+    }
+      }
+    return $fid . " is not one of our student";
+    }
+}
+?>
+<!-- finalResult.php -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+       if(isset($_POST['submit'])) {
+        $stid = $_POST['studentId'];
+        include ("studentClass.php");
+
+     $sheet = new StudentClass("result.txt");
+     $result= $sheet->result($stid);
+         echo $result;
+       }
+    ?>
+    <h3>
+            Find Result
+        </h3>
+    <form action="" method="post">
+    <input type="number" name="studentId">
+    <input type="submit" name="submit" value="Search">
+    </form>
+</body>
+</html>
+<!-- assosiative array -->
+ <?php
+$country = array("BD" => "Dhaka", "USA" => "New York", "UK" => "Londonm", "India" => "Dellhi", "Finland" => "Helsinki");
+echo "The key sorted array is: <br>";
+ksort($country);
+foreach ($country as $key => $value) {
+    echo "$key => $value<br>";
+}
+?>
+
+<hr>
+
+<?php
+$country = array("BD" => "Dhaka", "USA" => "New York", "UK" => "Londonm", "India" => "Dellhi", "Finland" => "Helsinki"
+);
+echo "The value sorted array is: <br>";
+asort($country);
+foreach ($country as $key => $value) {
+    echo "$key => $value<br>";
+}
+?>
+
+<hr>
+<!-- Factorial -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Factorial Checker</h3>
+    <form action="" method="post">
+    Enter the Number <input type="number" name="number" required>
+    <input type="submit" name="submit" value="Check">
+    </form>
+
+    <?php 
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $num = $_POST['number'];
+
+        function factorial ($num){
+            if($num<0) return null;
+            $fact = 1;
+            for ($i = 1; $i<=$num; $i++){
+                $fact *= $i;
+            }
+            return $fact;
+        }
+        if ($num < 0) {
+            echo "<p style='color:red;'>Factorial is not defined for negative numbers.</p>";
+        } else {
+            echo "<p style='color:green;'>Factorial of $num is " . factorial($num) . "</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+<!-- File Upload -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>File Upload Using Php Protocol</h3>
+    <?php
+    if(isset($_POST['upload'])){
+        $filename = $_FILES['myfile']['name'];
+        $tmpfile =  $_FILES['myfile']['tmp_name'];
+        $destination = "file/" . $filename;
+        $FileSize =  $_FILES['myfile']['size']; 
+        $maxSize = 100000;
+        echo $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $allowedTypes = ["jpg", "jpeg", "png"];
+        $errors =[];
+
+        if($FileSize>$maxSize){
+            $errors[] = "File is to large 1 mb is max file size" . "<br>";
+        }
+        if(!in_array($ext, $allowedTypes)){
+             $errors[] = "<br>" . " File Type not allowed";
+        }
+        
+        if(count($errors)>0){
+            foreach($errors as $error){
+            echo $error;
+            }
+
+        }
+        else {
+            move_uploaded_file($tmpfile, $destination);
+            echo "<br>" . "Sucessfull";
+
+        }
+    }     
+    ?>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="myfile">
+    <input type="submit" value="UPLOAD" name="upload">
+    </form>
 </body>
 </html>
 <!-- Sturent Result -->
