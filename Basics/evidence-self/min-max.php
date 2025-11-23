@@ -19,7 +19,7 @@
         $numArray = explode(",", $givenNumbers);
         $outputNumbers = [];
 
-        // ✅ Loop over numArray, not outputNumbers
+
         foreach ($numArray as $value) {
             $num = intval(trim($value));
             $outputNumbers[] = $num;

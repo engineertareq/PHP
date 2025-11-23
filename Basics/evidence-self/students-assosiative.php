@@ -18,17 +18,12 @@
         th {
             background-color: #f2f2f2;
         }
-        .highlight {
-            background-color: #d1ffd1;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <h3>Student Result Sheet</h3>
 
     <?php
-    // Associative array: student name => score
     $students = [
         "Alice" => 85,
         "Bob" => 92,
@@ -37,22 +32,16 @@
         "Eva" => 99
     ];
 
-    // Find maximum score and student
     $maxScore = max($students);
     $topStudent = array_search($maxScore, $students);
 
-    // Display table
     echo "<table>";
     echo "<tr><th>Student Name</th><th>Score</th></tr>";
 
     foreach ($students as $name => $score) {
-        if ($score == $maxScore) {
-            echo "<tr class='highlight'><td>$name</td><td>$score</td></tr>";
-        } else {
+        
             echo "<tr><td>$name</td><td>$score</td></tr>";
-        }
     }
-
     echo "</table>";
 
     echo "<p><strong>Highest Score:</strong> $maxScore by <strong>$topStudent</strong></p>";
